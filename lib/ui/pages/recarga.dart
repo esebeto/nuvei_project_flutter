@@ -17,89 +17,87 @@ class _RecargaPageState extends State<RecargaPage> {
   Widget build(BuildContext context) {
     List<int> precios = [10, 20, 50, 100, 200, 500];
 
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(38, 15, 46, 1),
-      body: SafeArea(
-        child: Column(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color.fromRGBO(38, 15, 46, 1),
+        body: Column(
           children: [
-            const SizedBox(
-              child: Text(
-                "Recarga en Casino Angelopolis",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.normal,
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: SizedBox(
+                child: Text(
+                  "Recarga en Casino Angelopolis",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.normal,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: 80,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: const Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
-                    child: TextField(
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 40,
-                      ),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Ingrese su texto',
-                        hintStyle: TextStyle(color: Colors.grey),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Container(
+                height: 80,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: const Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
+                      child: TextField(
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 40,
+                        ),
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Ingrese su texto',
+                          hintStyle: TextStyle(color: Colors.grey),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-            const SizedBox(
-              height: 30,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Expanded(
-              child: Wrap(
-                spacing: 16,
-                runSpacing: 16,
-                children: precios.map(
-                  (precio) {
-                    return ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 8),
-                        minimumSize: Size(
-                          (MediaQuery.of(context).size.width - 48) / 2,
-                          60,
-                        ), // Dividir el ancho en 2
+            const SizedBox(height: 16),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: precios.map(
+                (precio) {
+                  return ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Text(
-                        '$precio', // Mostrar el precio en el botón
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                        ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 8),
+                      minimumSize: Size(
+                        (MediaQuery.of(context).size.width - 48) / 2,
+                        60,
                       ),
-                    );
-                  },
-                ).toList(),
-              ),
+                    ),
+                    child: Text(
+                      '$precio',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                  );
+                },
+              ).toList(),
             ),
-            //Card
+            const SizedBox(height: 16),
             SizedBox(
               height: 200,
               child: PageView(
@@ -131,7 +129,7 @@ class _RecargaPageState extends State<RecargaPage> {
               ),
             ),
             const SizedBox(
-              height: 25,
+              height: 16,
             ),
             SmoothPageIndicator(
               controller: _controller,
@@ -140,10 +138,19 @@ class _RecargaPageState extends State<RecargaPage> {
                 activeDotColor: Colors.amberAccent,
               ),
             ),
-            //Boton de pago
-            CustomElevatedButton(
-              text: "Seleccione Metodo de Pago",
-              onPressed: () {},
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    CustomElevatedButton(
+                      text: "Seleccione Metodo de Pago",
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),

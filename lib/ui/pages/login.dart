@@ -13,22 +13,25 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(38, 15, 46, 1),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Expanded(
-                flex: 2,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color.fromRGBO(38, 15, 46, 1),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24, 150, 24, 12),
+              child: SizedBox(
+                height: 180,
+                width: double.infinity,
                 child: Image.asset(
                   "assets/png/fichas.png",
                   fit: BoxFit.contain,
                 ),
               ),
-              const Expanded(
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              child: SizedBox(
                 child: Center(
                   child: Text(
                     "CASINO APP",
@@ -40,8 +43,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              const Expanded(
-                flex: 2,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              child: SizedBox(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -50,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Email',
                       icon: Icons.email,
                     ),
+                    SizedBox(height: 24),
                     BasicTextField(
                       label: 'Ingresa tu contraseña',
                       hintText: 'Password',
@@ -58,9 +64,12 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              Expanded(
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -76,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                             fontSize: 18, fontWeight: FontWeight.w600),
                       ),
                       onPressed: () {
-                        Navigator.pushReplacement(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (_) => const HomePage(),
@@ -84,6 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       },
                     ),
+                    const SizedBox(height: 12),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.grey,
@@ -98,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                             fontSize: 18, fontWeight: FontWeight.w600),
                       ),
                       onPressed: () {
-                        Navigator.pushReplacement(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (_) => const RegisterPage(),
@@ -109,8 +119,8 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -7,36 +7,36 @@ class SaldoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(38, 15, 46, 1),
-      appBar: AppBar(
-        title: const Text("casino"),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SafeArea(
-          child: Column(
-            children: [
-              // Header Casino
-              const SizedBox(
-                child: Text(
-                  "Casino Angelopolis",
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              const Text(
-                "Mi Saldo",
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color.fromRGBO(38, 15, 46, 1),
+        appBar: AppBar(
+          title: const Text("casino"),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
+        ),
+        body: Column(
+          children: [
+            const SizedBox(
+              child: Text(
+                "Casino Angelopolis",
                 style: TextStyle(color: Colors.white),
               ),
-              Container(
-                width: double.infinity,
+            ),
+            const Text(
+              "Mi Saldo",
+              style: TextStyle(color: Colors.white),
+            ),
+            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Container(
+                //width: double.infinity,
                 height: 80,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
+                  color: const Color.fromRGBO(255, 255, 255, 1),
+                  borderRadius: BorderRadius.circular(50),
                 ),
                 child: const Column(
                   children: [
@@ -58,21 +58,28 @@ class SaldoPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const Text(
-                "Saldo Redimible",
-                style: TextStyle(color: Colors.white),
-              ),
-              const Text(
-                "Saldo No Redimible",
-                style: TextStyle(color: Colors.white),
-              ),
-              CustomElevatedButton(
+            ),
+            const Text(
+              "Saldo Redimible",
+              style: TextStyle(color: Colors.white),
+            ),
+            const Text(
+              "Saldo No Redimible",
+              style: TextStyle(color: Colors.white),
+            ),
+            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: CustomElevatedButton(
                 text: "Ver Deralle de Saldo",
                 backgroundColor: Colors.blue,
                 onPressed: () {},
               ),
-              // Botones
-              Expanded(
+            ),
+            // Botones
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -96,10 +103,10 @@ class SaldoPage extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
-              // Boton Entrar
-            ],
-          ),
+              ),
+            )
+            // Boton Entrar
+          ],
         ),
       ),
     );

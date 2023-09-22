@@ -21,7 +21,7 @@ class BasicTextField extends StatelessWidget {
           label,
           style: const TextStyle(
             color: Colors.white,
-            fontSize: 14,
+            fontSize: 16,
           ),
         ),
         const SizedBox(height: 8),
@@ -55,7 +55,10 @@ class BasicTextField extends StatelessWidget {
                   width: 1,
                 ),
               ),
-              suffixIcon: Icon(icon),
+              suffixIcon: Icon(
+                icon,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
